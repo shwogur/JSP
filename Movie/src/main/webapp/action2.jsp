@@ -2,19 +2,25 @@
     pageEncoding="UTF-8"%>
 <%@include file="dbconnect.jsp" %>
 <%
-	String movie_no = request.getParameter("movie_no");
-	String show_yn = request.getParameter("show_yn");
+	String res_id = request.getParameter("res_id");
+	String cust_id = request.getParameter("cust_id");
+	String cust_name = request.getParameter("cust_name");
+	String movie_id = request.getParameter("movie_id");
+	String res_date = request.getParameter("res_date");
+	String seat_no = request.getParameter("seat_no");
 	
-	String sql = "update tbl_movie_01 set show_yn = ? where movie_no = ?";
+	String sql = "update tbl_reservation set movie_id = ?, res_date = ?, seat_no = ? where res_id = ?";
 	
 	stmt = con.prepareStatement(sql);
 	
-	stmt.setString(1, show_yn);
-	stmt.setString(2, movie_no);
+	stmt.setString(1, movie_id);
+	stmt.setString(2, res_date);
+	stmt.setString(3, seat_no);
+	stmt.setString(4, res_id);
 	
 	int result = stmt.executeUpdate();
 	
 	if(result > 0){
-		response.sendRedirect("movieList.jsp");
+		response.sendRedirect("index.jsp");
 	}
 %>

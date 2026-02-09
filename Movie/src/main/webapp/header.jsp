@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header>
-	<h1>영화 상영 관리 시스템</h1>
+	<h1>영화관 매출 관리 프로그램</h1>
 </header>

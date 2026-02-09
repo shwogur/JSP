@@ -2,20 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@include file="dbconnect.jsp" %>
 <%
-	String movie_no = request.getParameter("movie_no");
-	String movie_name = request.getParameter("movie_name");
-	String open_dt = request.getParameter("open_dt").replace("-", "");
-	String genre = request.getParameter("genre");
-	String show_yn = request.getParameter("show_yn");
+	String res_id = request.getParameter("res_id");
+	String cust_id = request.getParameter("cust_id");
+	String movie_id = request.getParameter("movie_id");
+	String res_date = request.getParameter("res_date");
+	String seat_no = request.getParameter("seat_no");
 	
-	String sql = "insert into tbl_movie_01 values(?,?,?,?,0)";
+	String sql = "insert into tbl_reservation values(?,?,?,?,?)";
 	
 	stmt = con.prepareStatement(sql);
 	
-	stmt.setString(1, movie_no);
-	stmt.setString(2, movie_name);
-	stmt.setString(3, open_dt);
-	stmt.setString(4, genre);
+	stmt.setString(1, res_id);
+	stmt.setString(2, cust_id);
+	stmt.setString(3, movie_id);
+	stmt.setString(4, res_date);
+	stmt.setString(5, seat_no);
 	
 	if(stmt.executeUpdate() > 0){
 		response.sendRedirect("index.jsp");

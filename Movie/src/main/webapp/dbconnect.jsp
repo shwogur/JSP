@@ -16,7 +16,7 @@
 	
 		Class.forName("oracle.jdbc.OracleDriver");
 		
-		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "shwogur", "1234");
+		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "1234");
 		
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
